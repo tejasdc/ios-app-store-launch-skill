@@ -66,6 +66,13 @@ These cause the most wasted time. Read before starting:
 
 For the full gotchas list, see [gotchas.md](references/gotchas.md).
 
+**TestFlight Internal-only + WebView-shell apps** (the lighter path when the
+app is a native shell around a hosted PWA, no App Store submission needed):
+see [testflight-internal-and-shells.md](references/testflight-internal-and-shells.md).
+Covers the three-broken-build safe-area trap, Xcode 26 rsync bug, Associated
+Domains / AASA for passkeys, verify-by-simulator-screenshot pattern, and why
+`POST /v1/apps` returns 403.
+
 ## Submit for Review (Phase 10)
 
 **CRITICAL: Use `reviewSubmissions`, NOT `appStoreVersionSubmissions`.**

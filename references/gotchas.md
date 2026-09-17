@@ -13,6 +13,10 @@
 | Error | Endpoint | Root Cause | Fix |
 |-------|----------|-----------|-----|
 | `403: "The specified resource does not allow this request"` | `POST /v1/appStoreVersionSubmissions` | Endpoint DEPRECATED, only DELETE allowed | Use `POST /v1/reviewSubmissions` (3-step flow) |
+| `403 FORBIDDEN_ERROR: "The resource 'apps' does not allow 'CREATE'"` | `POST /v1/apps` | Apple forbids app-record creation via API | Use the App Store Connect web UI (`+` on Apps page); query the id back with `GET /v1/apps?filter[bundleId]=…`. See [testflight-internal-and-shells.md](testflight-internal-and-shells.md) |
+| `409 STATE_ERROR: "Tester(s) cannot be assigned"` | `POST /v1/betaTesters` | Trying to add an ACCOUNT_HOLDER/Admin/App Manager/Developer as a beta tester — team members can't be external testers | Add via TestFlight UI (`+` on group's Testers page) or `POST /v1/betaGroups/{id}/relationships/betaTesters` with an ASC user id from `/v1/users` |
+| `422: "Invalid bundle. The … orientations were provided … but you need to include all of the …"` | altool upload | Universal build (`TARGETED_DEVICE_FAMILY = "1,2"`) missing `UIInterfaceOrientationPortraitUpsideDown` in `UISupportedInterfaceOrientations~ipad` | Add the missing orientation, or restrict `TARGETED_DEVICE_FAMILY: "1"` for iPhone-only |
+| `IDEFoundationErrorDomain Code=1 "Copy failed"` / `rsync: --extended-attributes: unknown option` | `xcodebuild -exportArchive` in Xcode 26 | Homebrew rsync 3.4.1 in PATH before `/usr/bin/openrsync` — the two don't share the `-E` option | Prepend `/usr/bin` to PATH: `export PATH="/usr/bin:/bin:$PATH"` before any xcodebuild that produces an IPA. See [testflight-internal-and-shells.md](testflight-internal-and-shells.md) |
 | `409 Conflict` | Any PATCH | Stale data or type mismatch in attributes | Re-GET the resource; check string vs boolean types |
 | `403: "This request is not allowed"` | Any write endpoint | JWT expired or wrong role | Regenerate token; ensure Admin or App Manager role |
 | `404 Not Found` | `/v1/appInfos/{id}/ageRatingDeclaration` | Declaration not created yet | Create a version first -- it auto-creates the declaration |
