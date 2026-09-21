@@ -73,6 +73,10 @@ Covers the three-broken-build safe-area trap, Xcode 26 rsync bug, Associated
 Domains / AASA for passkeys, verify-by-simulator-screenshot pattern, and why
 `POST /v1/apps` returns 403.
 
+**Iterating on your own devices** (per-app daily upload cap, one batching uploader, direct
+Mac installs, Watch Developer Mode, push environments): see
+[iteration-paths.md](references/iteration-paths.md).
+
 ## Submit for Review (Phase 10)
 
 **CRITICAL: Use `reviewSubmissions`, NOT `appStoreVersionSubmissions`.**
@@ -197,4 +201,5 @@ Result: New version enters review queue. Screenshots carry forward.
 | [api-setup.md](references/api-setup.md) | JWT auth, helper functions (asc_get/post/patch/delete), find app, create version, assign build |
 | [metadata-and-assets.md](references/metadata-and-assets.md) | Localization, app info, categories, age rating, screenshot upload, review contact |
 | [submission-workflow.md](references/submission-workflow.md) | Pricing, privacy questionnaire, content rights, pre-flight verification, submit for review |
+| [iteration-paths.md](references/iteration-paths.md) | TestFlight upload cap vs direct Mac installs, Watch Developer Mode, push environment, stuck macOS updates |
 | [gotchas.md](references/gotchas.md) | All battle-tested lessons, API error reference table, browser automation pitfalls |
