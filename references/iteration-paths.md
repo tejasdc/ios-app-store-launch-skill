@@ -46,6 +46,13 @@ don't send every fix through TestFlight. Source: thnkr.ing, September 21, 2026 (
   the Watch through its paired iPhone. A stale Mac-side pairing can make the Watch refuse
   connections (CoreDevice `RemotePairingError 1007`). An unpaired Watch is not discoverable
   until Xcode's Devices window drives the pairing.
+- **The Watch must be a registered device too.** `-allowProvisioningDeviceRegistration`
+  registers only the build destination (the phone). Register the Watch's UDID with
+  `POST /v1/devices` (it becomes `deviceClass APPLE_WATCH`) and clear Xcode's cached Watch
+  profiles, or the Watch refuses the install with `0xe8008012 This provisioning profile cannot be
+  installed on this device`. A just-registered Watch can refuse the first attempt; retry.
+- `devicectl device info details` labels the hardware id `udid:` in Xcode 26 and `UDID:` in
+  Xcode 27. Match it case-insensitively.
 - **Xcode must support the paired iPhone's iOS version.** Xcode 26.3 installed apps on an iOS 27
   phone but could not reach the Watch through it. The fix was Xcode 27, which requires macOS
   26.6 or later.
