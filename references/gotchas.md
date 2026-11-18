@@ -72,6 +72,22 @@ API-created submissions that failed show as "Draft iOS Submission" entries in th
 
 The "Set Up Availability" button on the Pricing page is optional. Apps default to all 175 territories. Only use it to RESTRICT availability.
 
+### China mainland compliance forms (since November 16, 2026)
+
+Every app whose availability includes China mainland must answer two declarations in App Store
+Connect before it can be submitted: AI-Generated or Synthetic Services (chatbots, image/video
+generation, voice or face alteration; needs approved LLM or algorithm filing numbers and, for
+third-party AI, an authorization agreement) and Security Assessment (distributing AI-generated
+content, end-to-end encrypted messaging). New China distribution needs them from November 16, 2026;
+apps already live in China need them before their next version submission after January 31, 2027.
+Incomplete forms block submission; answer "No" where a regulation does not apply. If the answers
+fail verification, the app releases everywhere else and stays out of China mainland. An app with
+AI features and no Chinese filing should drop China mainland from availability instead of
+declaring "No". Source: Apple Developer email "Action Required: New Compliance Forms for Apps
+Distributed in China Mainland", November 17, 2026. As of November 18, 2026 none of Tejas's own
+team (6966SNKBNF) apps was on the public App Store, so this applies only from the first release
+that includes China mainland.
+
 ### Phone number in review contact
 
 Use a real number, not 555-xxx. Apple reviewers may call during review.
