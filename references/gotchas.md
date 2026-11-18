@@ -84,9 +84,11 @@ Incomplete forms block submission; answer "No" where a regulation does not apply
 fail verification, the app releases everywhere else and stays out of China mainland. An app with
 AI features and no Chinese filing should drop China mainland from availability instead of
 declaring "No". Source: Apple Developer email "Action Required: New Compliance Forms for Apps
-Distributed in China Mainland", November 17, 2026. As of November 18, 2026 none of Tejas's own
-team (6966SNKBNF) apps was on the public App Store, so this applies only from the first release
-that includes China mainland.
+Distributed in China Mainland", November 17, 2026. Before any submission, check the app's
+availability in App Store Connect for China mainland; an app that is not yet public is still
+covered by the new-distribution rule on its first release, including a resubmission after a
+rejection. Public storefront lookups only show released apps and cannot establish what other
+apps an account holds.
 
 ### Phone number in review contact
 
